@@ -9,8 +9,8 @@ module.exports = mongoose => {
                 fullname: String,
                 phone: Number,
                 address: String,
-                boilers: [],
-                capabilities: [],
+                boilers: [String],
+                capabilities: [Number],
                 hour_rate: Number,
                 daily_capacity: Number
             }
