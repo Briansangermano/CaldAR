@@ -27,6 +27,7 @@ building
         });
     }); 
 };
+
 exports.findAll = (req, res) => {
     Building.find({})
         .then(data =>{
@@ -38,7 +39,8 @@ exports.findAll = (req, res) => {
                     err.message || "Some error occurred while retrieving buildings"
             });
         });
-    };
+};
+
 exports.findOne = (req,res) => {
     Building.findOne({id: req.params.id})
         .then(data => {
@@ -55,7 +57,8 @@ exports.findOne = (req,res) => {
                     err.message || "Some error occurred while retrieving builing"
             });
         });
-    };
+};
+
 exports.update = (req,res) => {
     if (!req.body){
         return res.status(400).send({
@@ -67,24 +70,22 @@ exports.update = (req,res) => {
         res.status(400).send({ message:"Content cannot be empty"});
         return;
     }
-}
-
-const id = req.params.id;
-
-Building.findOneAndUpdate({id}, req.body, { useFindAndModify:false})
-    .then(data => {
-        if(!data){
-            res.status(404).send({
-                message:`Cannot update Building whith id=${id}. Maybe Building was not found!`
+    const id = req.params.id;
+    Building.findOneAndUpdate({id}, req.body, { useFindAndModify:false})
+        .then(data => {
+            if(!data){
+                res.status(404).send({
+                    message:`Cannot update Building whith id=${id}. Maybe Building was not found!`
+                });
+            } else res.send({ message:"Buiding was updated succesfully."});
+        })
+        .catch(err =>{
+            res.status(500).send({
+                message: "Error updating Building with id ="+ id
             });
-        } else res.send({ message:"Buiding was updated succesfully."});
-    })
-    .catch(err =>{
-        res.status(500).send({
-            message: "Error updating Building with id ="+ id
-        });
 
-    })
+        })
+}
 
 exports.delete = (req,res) =>{
     const id = req.params.id;

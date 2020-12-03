@@ -7,6 +7,6 @@ db.url = 'mongodb+srv://Admin:RwM2CTiylkTtGvxg@cluster0.l9taq.mongodb.net/CaldAR
 db.constructionCompany = require('./construction-company.js')(mongoose);
 db.boilerTypes = require('./boiler-types.js')(mongoose);
 db.technicians = require('./technicians')(mongoose);
-db.building = require('./building.js')(mongoose);
+db.building = require('./buildings.js')(mongoose);
 
 module.exports = db;

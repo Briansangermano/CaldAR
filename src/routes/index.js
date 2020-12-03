@@ -8,6 +8,6 @@ const router = require('express').Router();
 router.use('/construction-company', constructionCompanyRouter);
 router.use('/boiler-types', boilerTypesRouter);
 router.use('/technicians', techniciansRouter);
-router.use('/buildings',buildingRouter)
+router.use('/buildings', buildingRouter)
 
 module.exports = router;
