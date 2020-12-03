@@ -2,8 +2,8 @@ const express = require('express');
 const app = express();
 const bodyParser = require('body-parser');
 const port = 3000;
-const db = require('./models');
-const router = require('./routes');
+const db = require('./src/models');
+const router = require('./src/routes');
 
 app.use(bodyParser.json());
 //app.use(bodyParser.urlencoded({ extended: true}));

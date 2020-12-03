@@ -1,5 +1,5 @@
 const db = require('../models');
-const constructionCompany = db.constructionCompany;
+const ConstructionCompany = db.constructionCompany;
 
 //Create a new Construction Company
 exports.create = (req, res) => {
@@ -7,7 +7,8 @@ exports.create = (req, res) => {
     res.status(400).send({ message: 'Content can not be empty!'});
     return;
   }
-  const constructionCompany = new constructionCompany({
+
+  const constructionCompany = new ConstructionCompany({
     id_company: req.body.id_company,
     cuit: req.body.cuit,
     email: req.body.email,
@@ -30,7 +31,7 @@ exports.create = (req, res) => {
 
 //Retrieve all Construction Companies from the DB
 exports.findAll = (req, res) => {
-  constructionCompany.find({})
+  ConstructionCompany.find({})
     .then(data => {
       res.send(data);
     })
@@ -44,7 +45,7 @@ exports.findAll = (req, res) => {
 
 //Find a company by ID
 exports.findOne = (req, res) => {
-  constructionCompany.findOne({id: req.params.id_company})
+  ConstructionCompany.findOne({id: req.params.id_company})
     .then(data => {
       if(!data) {
         return res.status(404).send({
@@ -64,7 +65,7 @@ exports.findOne = (req, res) => {
 //Find a company by an specific property: in this case, by CUIT
 exports.findCuit = (req, res) => {
   const cuit = req.params.cuit;
-  constructionCompany.findOne({cuit})
+  ConstructionCompany.findOne({cuit})
     .then(data => {
       if(!data) {
         return res.status(404).send({
@@ -84,7 +85,7 @@ exports.findCuit = (req, res) => {
 //Delete a Construction Company by ID
 exports.delete = (req, res) => {
   const id_company = req.params.id_company;
-  constructionCompany.findOneAndRemove({id_company}, {useFindeAndModify: false})
+  ConstructionCompany.findOneAndRemove({id_company}, {useFindeAndModify: false})
     .then(data => res.send({message: `Construction Company was removed succesfully`}))
     .catch(err => {
       res.status(500).send({
@@ -105,7 +106,7 @@ exports.update = (req, res) => {
     return;
   };
   const id_company = req.params.id_company;
-  constructionCompany.findOneAndUpdate({id_company}, req.body, {useFindAndModify: false})
+  ConstructionCompany.findOneAndUpdate({id_company}, req.body, {useFindAndModify: false})
     .then(data => {
       if(!data) {
         res.status(404).send({
