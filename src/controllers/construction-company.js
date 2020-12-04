@@ -45,7 +45,7 @@ exports.findAll = (req, res) => {
 
 //Find a company by ID
 exports.findOne = (req, res) => {
-  ConstructionCompany.findOne({id: req.params.id_company})
+  ConstructionCompany.findOne({id_company: req.params.id_company})
     .then(data => {
       if(!data) {
         return res.status(404).send({
