@@ -23,6 +23,6 @@ router.get('/:id_company', constructionCompany.findOne);
 endpoints with id first, as "id_building" and "id_user"*/
 
 ////Retrieve Construction Companies by type (CUIT)
-router.get(':cuit', constructionCompany.findCuit);
+router.get('/:cuit', constructionCompany.findCuit);
 
 module.exports = router;
