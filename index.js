@@ -6,7 +6,8 @@ const db = require('./src/models');
 const router = require('./src/routes');
 
 app.use(bodyParser.json());
-//app.use(bodyParser.urlencoded({ extended: true}));
+app.use(bodyParser.urlencoded({ extended: true}));
+
 //Connect to the server
 db.mongoose
   .connect(db.url, {
