@@ -24,6 +24,7 @@
     "mongoose": "^5.11.2"
   },
   "devDependencies": {
+    "husky": "^5.0.4",
     "nodemon": "^2.0.6"
   }
 }
