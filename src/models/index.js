@@ -9,5 +9,6 @@ db.constructionCompany = require("./construction-company.js")(mongoose);
 db.boilerTypes = require("./boiler-types.js")(mongoose);
 db.technicians = require("./technicians")(mongoose);
 db.building = require("./buildings.js")(mongoose);
+db.boiler = require("./boiler.js")(mongoose);
 
 module.exports = db;

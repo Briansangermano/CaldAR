@@ -2,21 +2,21 @@ const boilerTypes = require("../controllers/boiler-types.js");
 const router = require("express").Router();
 
 //Create a new Boiler Type
-router.post("/addNew", boilerTypes.create);
+router.post("/", boilerTypes.create);
 
 //Update a Boiler Type by id
-router.put("/updateById/:id_boiler_type", boilerTypes.update);
+router.put("/:id_boiler_type", boilerTypes.update);
 
 //Delete a Boiler Type by id
-router.delete("/deleteById/:id_boiler_type", boilerTypes.delete);
+router.delete("/:id_boiler_type", boilerTypes.delete);
 
 //Retrieve all Boiler Types
-router.get("/getAll", boilerTypes.findAll);
+router.get("/", boilerTypes.findAll);
 
 //Retrieve Boiler Type by ID
-router.get("/getById/:id_boiler_type", boilerTypes.findOne);
+router.get("/:id_boiler_type", boilerTypes.findOne);
 
 ////Retrieve Boiler Type by type (DESCRIPTION)
-router.get("/getByType/:description", boilerTypes.findDescription);
+router.get("/:description", boilerTypes.findDescription);
 
 module.exports = router;
